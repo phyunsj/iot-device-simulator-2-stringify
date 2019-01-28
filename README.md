@@ -18,9 +18,9 @@ See Also
 
 ## `Developer Template` as a Trigger as well as a MQTT subscriber
 
-Please follow the instructions from https://www.stringify.com/app/uploads/2017/06/Node-Developer-Module-Technical-Doc-rev-03.pdf and make additional adjustments if necessary.
+Please follow the instructions from https://www.stringify.com/app/uploads/2017/06/Node-Developer-Module-Technical-Doc-rev-03.pdf and make any additional adjustment if necessary.
 
-
+Changes I made for this example : 
 
 - package.json
 
@@ -29,7 +29,7 @@ Please follow the instructions from https://www.stringify.com/app/uploads/2017/0
     +"bonjour": "^3.5.0", // https://www.npmjs.com/package/bonjour. Publish/discover services on the local network 
     +"mqtt": "^2.18.8",
     -"uws": "^0.14.5", // deprecated
-    // remove below packages since my example runs on a Mac
+    -// remove below packages since my example runs on a Mac
     -"stringify-developer-gpio": "https://cdn.stringify.com/developer/stringify-developer-gpio.tgz", 
     -"stringify-developer-speaker": "https://cdn.stringify.com/developer/stringify-developer-speaker.tgz", 
 ```
@@ -156,7 +156,4 @@ flow.set('service', service);
 return null;
 ```
 
-#### Related Posts :
 
-- [stringify forum : SDM troubleshooting](https://forums.stringify.com/t/developer-module-sdm/3403)
-- [SmartThings:Custom device handlers to fool Stringify](https://community.smartthings.com/t/custom-device-handlers-to-fool-stringify/112226)
