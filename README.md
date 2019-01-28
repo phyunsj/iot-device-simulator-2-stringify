@@ -159,3 +159,5 @@ return null;
 #### Related Posts :
 
 - [stringify forum : SDM troubleshooting](https://forums.stringify.com/t/developer-module-sdm/3403)
+- [Find the MQTT broker without an IP adress](http://dagrende.blogspot.com/2017/02/find-mqtt-broker-without-hard-coded-ip.html)
+- [cWS - modified version of the uWebsockets](https://github.com/ClusterWS/cWS)
