@@ -75,7 +75,7 @@ Changes I made for this example :
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/node-red-mqtt-stringify-text.gif" width="700px"/>
 </p>
 
-- node_modules/stringify-developer-template/index.js
+- `init()` in node_modules/stringify-developer-template/index.js
 
 ```
 const mqtt = require('mqtt');
