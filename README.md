@@ -1,4 +1,4 @@
-# IoT Device Simulator (Node-RED) + Stringify Developer Module(SDM)
+# IoT Device Simulator + Stringify
 
 
 ## In Action
