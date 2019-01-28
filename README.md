@@ -108,10 +108,9 @@ const StringifyEventsModule = function (logger) {
 
 - lib/event-api.js
 
-`user` from `stringifyEvents.getUser()` is always **null** even though `accessToken` is ccorrectly generated and stored in `$HOME/.stringify`. Not clear whether `https://api.stringify.com/v2/users/me` is a valid URL. 
+`user` from `stringifyEvents.getUser()` is always _**null**_ although `accessToken` is ccorrectly generated and stored in `$HOME/.stringify`. Not clear whether `https://api.stringify.com/v2/users/me` is a valid URL. 
 
-Disable validation routine and create a websocket connection with `accessToken`. 
-
+Create a websocket connection with `accessToken` to proceed further without user validaton.
 
 
 ## Node-RED Iot Simulator + [Mosca MQTT Broker](https://github.com/zuhito/node-red-contrib-mqtt-broker) + [bonjour](https://www.npmjs.com/package/bonjour) 
