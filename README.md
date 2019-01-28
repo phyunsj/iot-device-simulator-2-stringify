@@ -110,8 +110,18 @@ const StringifyEventsModule = function (logger) {
 
 `user` from `stringifyEvents.getUser()` is always _**null**_ although `accessToken` is ccorrectly generated and stored in `$HOME/.stringify`. Not clear whether `https://api.stringify.com/v2/users/me` is a valid URL. 
 
-Create a websocket connection with `accessToken` to proceed further without user validaton.
-
+```         
+            +// Disable user validation 
+            +//if (user) {
+                logger.debug(`Please visit ${httpHost} in your web browser to configure.`);
+                wsConnection = new ws.connect(at);
+                cb(null, wsConnection);
+            +//} else {
+            +//    settings.delSetting('accessToken');
+            +//    logger.debug(`User credentials failed. Please visit ${httpHost} in your web browser to login.`);
+            +//    cb(`Invalid credentials`);
+            +//}
+```
 
 ## Node-RED Iot Simulator + [Mosca MQTT Broker](https://github.com/zuhito/node-red-contrib-mqtt-broker) + [bonjour](https://www.npmjs.com/package/bonjour) 
 
