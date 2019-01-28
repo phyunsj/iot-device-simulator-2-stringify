@@ -95,6 +95,8 @@ const StringifyEventsModule = function (logger) {
      });
 
     };
+    ...
+    
 ```
 
 ## Node-RED Iot Simulator + Mosca MQTT Broker + bonjour 
@@ -102,6 +104,26 @@ const StringifyEventsModule = function (logger) {
 <p align="center">
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/node-red-mqtt-broker.png" width="500px"/>
 </p>
+
+- MQTT Broker Announcement
+
+```
+// https://www.npmjs.com/package/bonjour
+// See https://github.com/phyunsj/node-red-custom-dashboard-system-page to enable "require"
+var bonjour = require('bonjour')() 
+var service = flow.get("service") || null;
+bonjour.unpublishAll();
+if (service) service.stop(); // allow re-deploy
+// advertise MQTT server
+var service = bonjour.publish({ name: 'MQTT broker', 
+                  type: 'mqtt', 
+                  txt : { clientid : 'ny-10001-sensor1'},
+                  port: 1883 });
+flow.set('service', service);
+return null;
+```
+
+- [Mosaca MQTT Broker](https://github.com/zuhito/node-red-contrib-mqtt-broker)
 
 
 #### Related Posts :
