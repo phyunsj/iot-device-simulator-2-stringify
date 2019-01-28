@@ -19,6 +19,13 @@ With the Developer Module, you can connect just about anything that runs Node.js
 
 If UV index is above 8, trigger a notification. 
 
+## Node-RED Iot Simulator + Mosca MQTT Broker + bonjour 
+
+<p align="center">
+<img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/node-red-mqtt.png" width="500px"/>
+</p>
+
+
 #### Related Posts :
 
 - [stringify forum : SDM troubleshooting](https://forums.stringify.com/t/developer-module-sdm/3403)
