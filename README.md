@@ -10,7 +10,7 @@
 ## Stringify Developer Module
 
 - [Step Up Your Automation](https://www.stringify.com/makers/)
-- [Stringify News : Announcing Advanced Tools for Makers on May,26](https://www.stringify.com/step-up-your-automation/)
+- [Stringify News : Announcing Advanced Tools for Makers on May 26,2017](https://www.stringify.com/step-up-your-automation/)
 - [Strinify Developer Module Rev 0.3. Release on June,2017](https://www.stringify.com/app/uploads/2017/06/Node-Developer-Module-Technical-Doc-rev-03.pdf)
 
 With the Developer Module, you can connect just about anything that runs Node.js to Stringify. You can send and receive events and use your custom Thing in Flows just like any other Thing. The Developer module connects to Stringify and lets you write custom code in JavaScript to do just about anything you can imagine. _...from stringify_
