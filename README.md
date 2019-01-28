@@ -17,12 +17,85 @@ With the Developer Module, you can connect just about anything that runs Node.js
 
 ## `Developer Template` as a Trigger as well as a MQTT subscriber
 
-If UV index is above 8, trigger a notification. 
+- If UV index is above 8, trigger a notification. 
 
+```
+     // client is a MQTT subscriber (topic "ny-10001/uv-sensor")
+     client.on('message',function(topic, message, packet){
+            if ( parseInt(message) > 8) { // 8<' Very High/Dangerous
+              self.emit('trigger', {
+                trigger : 'Warning'
+              });
+            }
+        });
+```
 
 <p align="center">
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/node-red-mqtt-stringify-text.gif" width="700px"/>
 </p>
+
+- package.json
+
+```
+    +"@clusterws/cws": "^0.11.0", // https://www.npmjs.com/package/@clusterws/cws. "uws" replacement
+    +"bonjour": "^3.5.0", // https://www.npmjs.com/package/bonjour. Publish/discover services on the local network 
+    +"mqtt": "^2.18.8",
+    -"uws": "^0.14.5", // deprecated
+    // remove below packages since my example runs on a Mac
+    -"stringify-developer-gpio": "https://cdn.stringify.com/developer/stringify-developer-gpio.tgz", 
+    -"stringify-developer-speaker": "https://cdn.stringify.com/developer/stringify-developer-speaker.tgz", 
+```
+
+- node_modules/stringify-developer-template/index.js
+
+```
+const mqtt = require('mqtt');
+const bonjour = require('bonjour')();
+const settings = require('../../lib/settings'); 
+
+const StringifyEventsModule = function (logger) {
+    var self = this;
+    var client; // mqtt subscriber
+    if (!(this instanceof StringifyEventsModule)) return new StringifyEventsModule(logger);
+    this.init = () => {
+        logger.debug('stringify-developer-template module initialized');
+
+        // browse for all mqtt brokers 
+        bonjour.find({ type: 'mqtt' }, function (service) {
+        settings.saveSettings( "MQTTAddress", service.addresses[0] );
+        settings.saveSettings( "MQTTPort", service.port );
+        settings.saveSettings( "MQTTClient", service.txt['clientid'] );
+
+        var mqttOptions = {
+            clientId:service.txt['clientid']+'-uv' // MUST be unique
+        };
+    
+        client  = mqtt.connect('mqtt://'+service.addresses[0]+':'+ service.port,  mqttOptions);
+        //handle incoming messages
+        client.on('message',function(topic, message, packet){
+            if ( parseInt(message) > 8) { // 8<' Very High/Dangerous
+              self.emit('trigger', {
+                trigger : 'Warning'
+              });
+            }
+        });
+
+        client.on('error', function (err) {
+            logger.debug('Error from '+'mqtt://'+service.addresses[0]+':'+ service.port);
+            logger.debug(err);
+        });
+
+        client.on('connect', function () {
+            logger.debug('Connected to '+'mqtt://'+service.addresses[0]+':'+ service.port);
+            client.subscribe('ny-10001/uv-sensor', function (err) {
+            if(err) logger.debug('MQTT Subscriber Error:',err);
+            });
+        });
+
+     });
+
+    };
+```
 
 ## Node-RED Iot Simulator + Mosca MQTT Broker + bonjour 
 
