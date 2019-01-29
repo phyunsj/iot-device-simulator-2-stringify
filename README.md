@@ -60,19 +60,6 @@ Changes I made for this example :
       +//}
 ```
 
-- Trigger a notification `self.emit('trigger',...)` if If UV index is above 8.
-
-```
-     // client is a MQTT subscriber (topic "ny-10001/uv-sensor")
-     client.on('message',function(topic, message, packet){
-            if ( parseInt(message) > 8) { // 8<' Very High/Dangerous
-              self.emit('trigger', {
-                trigger : 'Warning'
-              });
-            }
-        });
-```
-
 <p align="center">
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/node-red-mqtt-stringify-text.gif" width="700px"/>
 </p>
@@ -128,6 +115,19 @@ const StringifyEventsModule = function (logger) {
     };
     ...
     
+```
+
+ Trigger a notification `self.emit('trigger',...)` if If UV index is above 8.
+
+```
+     // client is a MQTT subscriber (topic "ny-10001/uv-sensor")
+     client.on('message',function(topic, message, packet){
+            if ( parseInt(message) > 8) { // 8<' Very High/Dangerous
+              self.emit('trigger', {
+                trigger : 'Warning'
+              });
+            }
+        });
 ```
 
 ## Node-RED Iot Simulator + [Mosca MQTT Broker](https://github.com/zuhito/node-red-contrib-mqtt-broker) + [bonjour](https://www.npmjs.com/package/bonjour) 
