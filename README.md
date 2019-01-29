@@ -129,6 +129,12 @@ const StringifyEventsModule = function (logger) {
         });
 ```
 
+Similar logic like **IFTTT**. **IF** **T**HIS`Warning` **T**HEN **T**HAT`notification`. 
+
+<p align="center">
+<img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/developer-template.png" width="450px"/>
+</p>
+
 ## Node-RED Iot Simulator + [Mosca MQTT Broker](https://github.com/zuhito/node-red-contrib-mqtt-broker) + [bonjour](https://www.npmjs.com/package/bonjour) 
 
 <p align="center">
