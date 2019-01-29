@@ -129,7 +129,7 @@ const StringifyEventsModule = function (logger) {
         });
 ```
 
-Similar logic like **IFTTT**. **IF** **T**HIS`Warning` **T**HEN **T**HAT`notification`. 
+Similar logic like **IFTTT**. **IF** **T**HIS ( $trigger == `Warning`) **T**HEN **T**HAT (trigger a `notification`). 
 
 <p align="center">
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/developer-template.png" width="450px"/>
