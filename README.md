@@ -3,12 +3,6 @@
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iot-simulator-stringify.png" width="450px"/>
 </p>
 
-## In Action
-
-<p align="center">
-<img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iphone-stingify.gif" width="300px"/>
-</p>
-
 ## Stringify Developer Module
 
 With the Developer Module, you can connect just about anything that runs Node.js to Stringify. You can send and receive events and use your custom Thing in Flows just like any other Thing. The Developer module connects to Stringify and lets you write custom code in JavaScript to do just about anything you can imagine. _...from stringify_
@@ -17,6 +11,11 @@ See Also
 - [Step Up Your Automation](https://www.stringify.com/makers/)
 - [Stringify News : Announcing Advanced Tools for Makers on May 26,2017](https://www.stringify.com/step-up-your-automation/)
 - [Strinify Developer Module Rev 0.3 (June,2017)](https://www.stringify.com/app/uploads/2017/06/Node-Developer-Module-Technical-Doc-rev-03.pdf)
+
+<p align="center">
+<img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iphone-stingify.gif" width="300px"/>
+</p>
+
 
 ## `Developer Template` as a Trigger as well as a MQTT subscriber
 
