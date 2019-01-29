@@ -3,8 +3,7 @@
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iot-simulator-stringify.png" width="450px"/>
 </p>
 
-# IoT Device Simulator + Stringify
-
+## In Action
 
 <p align="center">
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iphone-stingify.gif" width="300px"/>
