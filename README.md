@@ -45,10 +45,10 @@ Changes I made for this example :
 
 - lib/event-api.js
 
-**NOTE** `user` from `stringifyEvents.getUser()` is always _**null**_ although `accessToken` is ccorrectly generated and stored in `$HOME/.stringify`. Not clear whether `https://api.stringify.com/v2/users/me` is a valid URL. 
+**NOTE** `user` from `stringifyEvents.getUser()` is always _**null**_ although `accessToken` is ccorrectly generated and stored in `$HOME/.stringify`. Not clear whether `https://api.stringify.com/v2/users/me` is still valid (or HTTP header parameter such as 'x-stringify-version') since it was released on 2017. Currently `headers: { 'Content-type': "application/json", 'x-stringify-version': 1.0.11, 'x-stringify-client': 'stringify-developer', 'Authorization':'Bearer ___accessToken_____' }` is sent.  
 
 ```         
-       +// Disable user validation 
+       +// Disable user validation intentionally. "user" is always null. 
        +//if (user) {
            logger.debug(`Please visit ${httpHost} in your web browser to configure.`);
            wsConnection = new ws.connect(at);
