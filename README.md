@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iot-simulator-stringify.png" width="250px"/>
+<img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iot-simulator-stringify.png" width="300px"/>
 </p>
 
 # IoT Device Simulator + Stringify
