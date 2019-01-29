@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iot-simulator-stringify.png" width="300px"/>
+<img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iot-simulator-stringify.png" width="450px"/>
 </p>
 
 # IoT Device Simulator + Stringify
@@ -28,13 +28,13 @@ Changes I made for this example :
 - package.json
 
 ```
-    +"@clusterws/cws": "^0.11.0", // https://www.npmjs.com/package/@clusterws/cws. "uws" replacement
-    +"bonjour": "^3.5.0", // https://www.npmjs.com/package/bonjour. Publish/discover services on the local network 
-    +"mqtt": "^2.18.8",
-    -"uws": "^0.14.5", // deprecated
-    -// remove below packages since my example runs on a Mac
-    -"stringify-developer-gpio": "https://cdn.stringify.com/developer/stringify-developer-gpio.tgz", 
-    -"stringify-developer-speaker": "https://cdn.stringify.com/developer/stringify-developer-speaker.tgz", 
+  +"@clusterws/cws": "^0.11.0",// https://www.npmjs.com/package/@clusterws/cws. "uws" replacement
+  +"bonjour": "^3.5.0",// https://www.npmjs.com/package/bonjour.Publish/discover services on the local network 
+  +"mqtt": "^2.18.8",
+  -"uws": "^0.14.5", // deprecated
+  -// remove below packages since my example runs on a Mac
+  -"stringify-developer-gpio": "https://cdn.stringify.com/developer/stringify-developer-gpio.tgz", 
+  -"stringify-developer-speaker": "https://cdn.stringify.com/developer/stringify-developer-speaker.tgz", 
 ```
 
 - lib/ws.js
@@ -49,16 +49,16 @@ Changes I made for this example :
 **NOTE** `user` from `stringifyEvents.getUser()` is always _**null**_ although `accessToken` is ccorrectly generated and stored in `$HOME/.stringify`. Not clear whether `https://api.stringify.com/v2/users/me` is a valid URL. 
 
 ```         
-            +// Disable user validation 
-            +//if (user) {
-                logger.debug(`Please visit ${httpHost} in your web browser to configure.`);
-                wsConnection = new ws.connect(at);
-                cb(null, wsConnection);
-            +//} else {
-            +//    settings.delSetting('accessToken');
-            +//    logger.debug(`User credentials failed. Please visit ${httpHost} in your web browser to login.`);
-            +//    cb(`Invalid credentials`);
-            +//}
+       +// Disable user validation 
+       +//if (user) {
+           logger.debug(`Please visit ${httpHost} in your web browser to configure.`);
+           wsConnection = new ws.connect(at);
+           cb(null, wsConnection);
+       +//} else {
+       +//    settings.delSetting('accessToken');
+       +//    logger.debug(`User credentials failed. Please visit ${httpHost} in your web browser to login.`);
+       +//    cb(`Invalid credentials`);
+      +//}
 ```
 
 - Trigger a notification `self.emit('trigger',...)` if If UV index is above 8.
@@ -78,7 +78,7 @@ Changes I made for this example :
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/node-red-mqtt-stringify-text.gif" width="700px"/>
 </p>
 
-- `init()` in node_modules/stringify-developer-template/index.js
+- `init()` in [node_modules/stringify-developer-template/index.js](https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/node_modules/stringify-developer-template/index.js)
 
 ```
 const mqtt = require('mqtt');
