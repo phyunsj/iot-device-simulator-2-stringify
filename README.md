@@ -47,15 +47,15 @@ Changes I made for this example :
 **NOTE** `user` from `stringifyEvents.getUser()` is always _**null**_ although `accessToken` is ccorrectly generated and stored in `$HOME/.stringify`. Not clear whether `https://api.stringify.com/v2/users/me` is still valid (or HTTP header parameter such as 'x-stringify-version') since it was released on 2017. Currently `headers: { 'Content-type': "application/json", 'x-stringify-version': 1.0.11, 'x-stringify-client': 'stringify-developer', 'Authorization':'Bearer ___accessToken_____' }` is sent.  
 
 ```         
-       +// Disable user validation intentionally. "user" is always null. 
-       +//if (user) {
+      + // Disable user validation intentionally. "user" is always null. 
+      + //if (user) {
            logger.debug(`Please visit ${httpHost} in your web browser to configure.`);
            wsConnection = new ws.connect(at);
            cb(null, wsConnection);
-       +//} else {
-       +//    settings.delSetting('accessToken');
-       +//    logger.debug(`User credentials failed. Please visit ${httpHost} in your web browser to login.`);
-       +//    cb(`Invalid credentials`);
+      + //} else {
+      + //    settings.delSetting('accessToken');
+      + //    logger.debug(`User credentials failed. Please visit ${httpHost} in your web browser to login.`);
+      + //    cb(`Invalid credentials`);
       +//}
 ```
 
@@ -66,48 +66,48 @@ Changes I made for this example :
 - `init()` in [node_modules/stringify-developer-template/index.js](https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/node_modules/stringify-developer-template/index.js)
 
 ```
-const mqtt = require('mqtt');
-const bonjour = require('bonjour')();
-const settings = require('../../lib/settings'); 
++const mqtt = require('mqtt');
++const bonjour = require('bonjour')();
++const settings = require('../../lib/settings'); 
 
 const StringifyEventsModule = function (logger) {
     var self = this;
     var client; // mqtt subscriber
     if (!(this instanceof StringifyEventsModule)) return new StringifyEventsModule(logger);
     this.init = () => {
-        logger.debug('stringify-developer-template module initialized');
+         logger.debug('stringify-developer-template module initialized');
 
-        // browse for all mqtt brokers 
-        bonjour.find({ type: 'mqtt' }, function (service) {
-        settings.saveSettings( "MQTTAddress", service.addresses[0] );
-        settings.saveSettings( "MQTTPort", service.port );
-        settings.saveSettings( "MQTTClient", service.txt['clientid'] );
++        // browse for all mqtt brokers 
++        bonjour.find({ type: 'mqtt' }, function (service) {
++        settings.saveSettings( "MQTTAddress", service.addresses[0] );
++        settings.saveSettings( "MQTTPort", service.port );
++        settings.saveSettings( "MQTTClient", service.txt['clientid'] );
 
-        var mqttOptions = {
-            clientId:service.txt['clientid']+'-uv' // MUST be unique
-        };
++        var mqttOptions = {
++            clientId:service.txt['clientid']+'-uv' // MUST be unique
++        };
     
-        client  = mqtt.connect('mqtt://'+service.addresses[0]+':'+ service.port,  mqttOptions);
-        //handle incoming messages
-        client.on('message',function(topic, message, packet){
-            if ( parseInt(message) > 8) { // 8<' Very High/Dangerous
-              self.emit('trigger', {
-                trigger : 'Warning'
-              });
-            }
-        });
++        client  = mqtt.connect('mqtt://'+service.addresses[0]+':'+ service.port,  mqttOptions);
++        //handle incoming messages
++        client.on('message',function(topic, message, packet){
++            if ( parseInt(message) > 8) { // 8<' Very High/Dangerous
++              self.emit('trigger', {
++                trigger : 'Warning'
++              });
++            }
++        });
 
-        client.on('error', function (err) {
-            logger.debug('Error from '+'mqtt://'+service.addresses[0]+':'+ service.port);
-            logger.debug(err);
-        });
++        client.on('error', function (err) {
++            logger.debug('Error from '+'mqtt://'+service.addresses[0]+':'+ service.port);
++            logger.debug(err);
++        });
 
-        client.on('connect', function () {
-            logger.debug('Connected to '+'mqtt://'+service.addresses[0]+':'+ service.port);
-            client.subscribe('ny-10001/uv-sensor', function (err) {
-            if(err) logger.debug('MQTT Subscriber Error:',err);
-            });
-        });
++        client.on('connect', function () {
++            logger.debug('Connected to '+'mqtt://'+service.addresses[0]+':'+ service.port);
++            client.subscribe('ny-10001/uv-sensor', function (err) {
++            if(err) logger.debug('MQTT Subscriber Error:',err);
++            });
++        });
 
      });
 
