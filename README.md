@@ -1,5 +1,6 @@
 
-### April, 8, 2019 Announcement : [The Stringify Service is Shutting Down](https://www.stringify.com/stringifyshuttingdown/)
+### :exclamation: April, 8, 2019 Announcement : [The Stringify Service is Shutting Down](https://www.stringify.com/stringifyshuttingdown/) :exclamation:
+
 
 <p align="center">
 <img src="https://github.com/phyunsj/iot-device-simulator-2-stringify/blob/master/images/iot-simulator-stringify.png" width="450px"/>
